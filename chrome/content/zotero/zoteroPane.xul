@@ -38,13 +38,13 @@
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
 	<script src="include.js"/>
-	<script src="zoteroPane.js" type="application/javascript;version=1.8"/>
+	<script src="zoteroPane.js" type="application/javascript"/>
 	<script src="fileInterface.js"/>
 	<script src="reportInterface.js"/>
 	<script src="timelineInterface.js"/>
 	<script src="recognizePDFDialog.js"/>
 	<script src="lookup.js"/>
-	<script src="locateMenu.js" type="application/javascript;version=1.8"/>
+	<script src="locateMenu.js" type="application/javascript"/>
 	
 	<commandset id="mainCommandSet">
 		<command id="cmd_zotero_reportErrors" oncommand="ZoteroPane_Local.reportErrors();"/>

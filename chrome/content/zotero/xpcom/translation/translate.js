@@ -331,16 +331,6 @@ Zotero.Translate.Sandbox = {
 			 * @inner
 			 */
 			var safeTranslator = {};
-			safeTranslator.__exposedProps__ = {
-				"setSearch":"r",
-				"setDocument":"r",
-				"setHandler":"r",
-				"setString":"r",
-				"setTranslator":"r",
-				"getTranslators":"r",
-				"translate":"r",
-				"getTranslatorObject":"r"
-			};
 			safeTranslator.setSearch = function(arg) {
 				if(!Zotero.isBookmarklet) arg = JSON.parse(JSON.stringify(arg));
 				return translation.setSearch(arg);
@@ -480,11 +470,10 @@ Zotero.Translate.Sandbox = {
 			if (Zotero.isFx) {
 				for(var i in safeTranslator) {
 					if (typeof(safeTranslator[i]) === "function") {
-						safeTranslator[i] = translate._sandboxManager._makeContentForwarder(function(func) {
-							return function() {
-								func.apply(safeTranslator, this.args.wrappedJSObject || this.args);
-							}
-						}(safeTranslator[i]));
+						safeTranslator[i] = Components.utils.exportFunction(
+							safeTranslator[i],
+							translate._sandboxManager.sandbox
+						)
 					}
 				}
 			}

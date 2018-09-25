@@ -23,10 +23,10 @@
     ***** END LICENSE BLOCK *****
 */
 
-EXPORTED_SYMBOLS = ["ConcurrentCaller"];
+var EXPORTED_SYMBOLS = ["ConcurrentCaller"];
 
 if (!(typeof process === 'object' && process + '' === '[object process]')) {
-	Components.utils.import('resource://zotero/require.js');
+	Components.utils.import('resource://zotero/require.jsm');
 	var Promise = require('resource://zotero/bluebird.js');
 } else {
 	Promise = require('bluebird');
@@ -62,7 +62,7 @@ if (!(typeof process === 'object' && process + '' === '[object process]')) {
  *     beginning of another, in milliseconds
  * @param {Function} [options.logger]
  */
-ConcurrentCaller = function (options = {}) {
+var ConcurrentCaller = function (options = {}) {
 	if (typeof options == 'number') {
 		this._log("ConcurrentCaller now takes an object rather than a number");
 		options = {

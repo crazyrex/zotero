@@ -7,4 +7,4 @@ var Zotero = Components.classes['@zotero.org/Zotero;1']
 				.getService(Components.interfaces.nsISupports)
 				.wrappedJSObject;
 
-Components.utils.import('resource://zotero/require.js');
+Components.utils.import('resource://zotero/require.jsm');

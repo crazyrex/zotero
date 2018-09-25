@@ -3,7 +3,7 @@
 var EXPORTED_SYMBOLS = ['require'];
 
 var require = (function() {
-	var { Loader, Require, Module } = Components.utils.import('resource://gre/modules/commonjs/toolkit/loader.js');
+	Components.utils.import('resource://zotero/loader.jsm');
 	var requirer = Module('/', '/');
 	var _runningTimers = {};
 	var window = {};

@@ -31,5 +31,5 @@ var ZOTERO_CONFIG = {
 if (typeof process === 'object' && process + '' === '[object process]'){
 	module.exports = ZOTERO_CONFIG;
 } else {
-	EXPORTED_SYMBOLS = ["ZOTERO_CONFIG"];
+	var EXPORTED_SYMBOLS = ["ZOTERO_CONFIG"];
 }

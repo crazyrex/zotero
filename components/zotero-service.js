@@ -150,9 +150,9 @@ var isFirstLoadThisSession = true;
 var zContext = null;
 var initCallbacks = [];
 var zInitOptions = {};
-Components.utils.import('resource://zotero/require.js');
+Components.utils.import('resource://zotero/require.jsm');
 
-ZoteroContext = function() {}
+var ZoteroContext = function() {}
 ZoteroContext.prototype = {
 	require,
 	
@@ -571,8 +571,8 @@ ZoteroCommandLineHandler.prototype = {
 					if (!DebuggerServer.initialized) {
 						dump("Initializing devtools server\n");
 						DebuggerServer.init();
+						DebuggerServer.registerAllActors();
 						DebuggerServer.allowChromeProcess = true;
-						DebuggerServer.addBrowserActors();
 					}
 					
 					let listener = DebuggerServer.createListener();
